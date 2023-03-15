@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-lg-6" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100" src="{% static 'img/traveler.jpg' %}" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 pt-5 pb-lg-5">
+                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
+                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
+                        <p>Welcome to Trawell, your ultimate travel companion! Our website provides you with all the information you need to plan your dream vacation. Whether you're looking for an exotic beach getaway or an exciting adventure in the mountains, we've got you covered. With just a few clicks, you can enter your destination and browse through a variety of travel packages tailored to your needs and budget. Our team of travel experts has curated a selection of the best travel packages from around the world, ensuring that you get the most out of your trip. So why wait? Let Trawell be your guide and start exploring the world today!</p>
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <img class="img-fluid" src="{% static 'img/tajmahal.jpg' %}" alt="">
+                            </div>
+                            <div class="col-6">
+                                <img class="img-fluid" src="{% static 'img/maldives.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Feature Start -->
+    <div class="container-fluid pb-5">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="d-flex mb-4 mb-lg-0">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                            <i class="fa fa-2x fa-money-check-alt text-white"></i>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <h5 class="">Competitive Pricing</h5>
+                            <p class="m-0">Our platform offers the best deals and packages, ensuring that you get the most value for your money</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex mb-4 mb-lg-0">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                            <i class="fa fa-2x fa-award text-white"></i>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <h5 class="">Best Services</h5>
+                            <p class="m-0">user-friendly platform for curated selection of the best travel packages, tailored to your needs and budget.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex mb-4 mb-lg-0">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                            <i class="fa fa-2x fa-globe text-white"></i>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <h5 class="">Wide Destinations</h5>
+                            <p class="m-0">Our website provides personalized destination suggestions, based on your preferences and budget</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="text-center mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h6>
+                    <h1>What Say Our Clients</h1>
+                </div>
+                <div class="owl-carousel testimonial-carousel">
+                    <div class="text-center pb-4">
+                        <img class="img-fluid mx-auto" src="{% static 'img/testimonial-1.jpg' %}" style="width: 100px; height: 100px;" >
+                        <div class="testimonial-text bg-white p-4 mt-n5">
+                            <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                            </p>
+                            <h5 class="text-truncate">Client Name</h5>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <img class="img-fluid mx-auto" src="{% static 'img/testimonial-2.jpg' %}" style="width: 100px; height: 100px;" >
+                        <div class="testimonial-text bg-white p-4 mt-n5">
+                            <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                            </p>
+                            <h5 class="text-truncate">Client Name</h5>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <img class="img-fluid mx-auto" src="{% static 'img/testimonial-3.jpg' %}" style="width: 100px; height: 100px;" >
+                        <div class="testimonial-text bg-white p-4 mt-n5">
+                            <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                            </p>
+                            <h5 class="text-truncate">Client Name</h5>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <img class="img-fluid mx-auto" src="{% static 'img/testimonial-4.jpg' %}" style="width: 100px; height: 100px;" >
+                        <div class="testimonial-text bg-white p-4 mt-n5">
+                            <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                            </p>
+                            <h5 class="text-truncate">Client Name</h5>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+{% endblock content %}
+

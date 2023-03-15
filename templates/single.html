@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Blog Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Blog Detail Start -->
+                <div class="pb-3">
+                    <div class="blog-item">
+                    </div>
+
+                    {% for x in messages %}
+                    <div class="alert alert-{{x.tags}}">
+                        {{x}}
+                    </div>
+                    {% endfor %}
+
+                    <div class="bg-white mb-3" style="padding: 30px;">
+                        <h5 class="text-primary"><span class="text-dark">Agency: </span>{{package.agency}}</h5>
+                        <hr>
+                        <h2><span class="text-primary">{{package}}</span> | Tour Overview</h2>
+                        <div class="tour-table-overview">
+                            <ul>
+                                <li><span>Price</span><strong class="emphasize">₹ {{package.price}}</strong></li>
+
+                                <li><span>Start Date</span><strong class="emphasize">{{package.start_date}}</strong>
+                                </li>
+
+                                <li><span>Type</span><strong>{{package.type_of_trip}}</strong></li>
+
+                                <li><span>Departure City</span><strong
+                                        class="emphasize">{{package.departure_city}}</strong>
+                                </li>
+
+                                <li><span>End City</span><strong class="emphasize">{{package.end_city}}</strong></li>
+
+                                <li><span>Contact name</span><strong>{{package.contact_name}}</strong></li>
+                                <li><span>Contact Number</span><strong>{{package.contact_number}}</strong></li>
+
+                                <li><span>Location</span><strong>{{package.destination}}</strong>
+                                </li>
+
+                                <li><span>Package Unicode</span><strong>{{package.id}}</strong>
+                                </li>
+                                <li><span>Durations</span><strong>
+                                        {{package.duration_days}} days
+                                    </strong>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {{package.description|safe }}
+                    </div>
+                </div>
+                <!-- Blog Detail End -->
+            </div>
+            <div class="col-lg-4 mt-5 mt-lg-0">
+
+
+                <!-- Reserve -->
+                <div id="text-2" class="widget widget_text">
+                    <div class="widget-header">
+                        <h3>Reserve Now!</h3>
+                    </div>
+                    <div class="textwidget">
+                        <div role="form" class="wpcf7" id="wpcf7-f133-o1" lang="en-US" dir="ltr">
+                            <div class="screen-reader-response">
+                                <p role="status" aria-live="polite" aria-atomic="true"></p>
+                                <ul></ul>
+                            </div>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <span class="wpcf7-form-control-wrap your-name">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-user"
+                                                        aria-hidden="true"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="name"
+                                                placeholder="Your Name *">
+                                        </div>
+                                    </span>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">@</span>
+                                        </div>
+                                        <input type="email" name="email" class="form-control" placeholder="Email *">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-phone"
+                                                    aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="text" name="number" class="form-control"
+                                            placeholder="Phone Number *">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                    <span class="wpcf7-form-control adult-select"><select name="adult"
+                                            class="form-control" aria-required="true" aria-invalid="false">
+                                            <option value="Adult">Adult</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                        </select></span>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                    <span class="form-control-wrap kids-select"><select name="kids" class="form-control"
+                                            aria-required="true" aria-invalid="false">
+                                            <option value="Kids">Kids</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                        </select></span>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <span class="form-control-wrap date-book"><input type="date" name="date"
+                                            value="Date Book" class="form-control" aria-required="true"
+                                            aria-invalid="false"></span><i class="fa fa-calendar-o"
+                                        aria-hidden="true"></i>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <span class="wpcf7-form-control-wrap your-message">
+                                        <textarea name="message" cols="40" rows="10" class="form-control"
+                                            aria-invalid="false" placeholder="Your Message"></textarea></span>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <input type="submit" value="Book Now" class="form-control"><span
+                                        class="wpcf7-spinner"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Form -->
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
+{% endblock content %}
