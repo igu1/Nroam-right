@@ -70,7 +70,7 @@
                 {% else %}
 
                 <div class="text-center w-100">
-                    <h3 style="text-align: center;">No Packages To Place Called "{{request.GET.q}}"</h3>
+                    <h3 style="text-align: center;">No Packages To Place Called "{{request.GET.q}}" For {{request.GET.d}}</h3>
                     <a href="{% url 'index' %}">Go Back</a>
                 </div>
 

@@ -1,15 +1,8 @@
 from django.forms import ModelForm
-from .models import Reservation, Contact
-
-
-class ReservationForm(ModelForm):
-    class Meta:
-        model = Reservation
-        fields = ['name', 'email', 'number',
-                  'adult', 'kids', 'date', 'message']
+from .models import Contact
 
 
 class ContactForm(ModelForm):
     class Meta:
         model = Contact
-        fields = '__all__'
+        fields = "__all__"
