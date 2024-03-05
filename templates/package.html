@@ -27,7 +27,7 @@
 <div class="container-fluid py-5">
     <div class="container pt-5 pb-3">
         <div class="text-center mb-3 pb-3">
-            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Packages</h6>
+            <h6 class="text-info text-uppercase" style="letter-spacing: 5px;">Packages</h6>
             <h1>Tour Packages</h1>
             <hr>
         </div>
@@ -45,16 +45,16 @@
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i
-                                        class="fa fa-map-marker-alt text-primary mr-2"></i>{{x.destination}}</small>
+                                        class="fa fa-map-marker-alt text-info mr-2"></i>{{x.destination}}</small>
                                 <small class="m-0"><i
-                                        class="fa fa-calendar-alt text-primary mr-2"></i>{{x.duration_days}}
+                                        class="fa fa-calendar-alt text-info mr-2"></i>{{x.duration_days}}
                                     days</small>
-                                <small class="m-0"><i class="fa fa-heart text-primary mr-2"></i>{{x.agency}}</small>
+                                <small class="m-0"><i class="fa fa-heart text-info mr-2"></i>{{x.agency}}</small>
                             </div>
                             <a class="h5 text-decoration-none" href="{% url 'detail-package' x.id %}">{{x.title}}</a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
+                                    <h6 class="m-0"><i class="fa fa-star text-info mr-2"></i>4.5
                                         <small>(250)</small>
                                     </h6>
                                     <h5 class="m-0">{{x.price}}</h5>
