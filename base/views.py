@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import TravelPackage
+from .models import Destination, TravelPackage
 from .forms import ContactForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
@@ -73,11 +73,28 @@ def packages(
 
 
 def detail_package(request, id):
+    travel = TravelPackage.objects.get(id=id)
+    totel_price = travel.price
+    location = travel.title
+
+    if request.method == "POST":
+        selected_destinations = request.POST.getlist("states[]")
+        travel.destinations.clear()
+        for destination_id in selected_destinations:
+            destination = Destination.objects.get(id=destination_id)
+            travel.destinations.add(destination)
+
+            
+    for x in travel.destinations.all():
+        totel_price += x.price
     return render(
         request,
         "single.html",
         {
-            "package": TravelPackage.objects.get(id=id),
+            "package": travel,
+            "totel_price":totel_price,
+            'selected_destinations': travel.destinations.all(),
+            "destinations": Destination.objects.filter(location=location),
         },
     )
 

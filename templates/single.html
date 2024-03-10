@@ -13,30 +13,45 @@
           {% endfor %}
 
           <div class="bg-white mb-3" style="padding: 30px">
-            <h2><span class="text-info">{{package}}</span> | Tour Overview</h2>
-            <div class="tour-table-overview">
-              <ul>
-                <li><span>Price</span><strong class="emphasize">₹ {{package.price}}</strong></li>
-
-                <li><span>Start Date</span><strong class="emphasize">{{package.start_date}}</strong></li>
-
-                <li><span>Type</span><strong>{{package.type_of_trip}}</strong></li>
-
-                <li><span>Departure City</span><strong class="emphasize">{{package.departure_city}}</strong></li>
-
-                <li><span>End City</span><strong class="emphasize">{{package.end_city}}</strong></li>
-
-                <li><span>Contact name</span><strong>{{package.contact_name}}</strong></li>
-                <li><span>Contact Number</span><strong>{{package.contact_number}}</strong></li>
-
-                <li><span>Location</span><strong>{{package.destination}}</strong></li>
-
-                <li><span>Package Unicode</span><strong>{{package.id}}</strong></li>
-                <li><span>Durations</span><strong> {{package.duration_days}} days </strong></li>
-              </ul>
+            <div class="d-flex justify-content-between">
+              <h2><span class="text-info">{{package}}</span> | Tour Overview</h2>
+              <h6>Total Price: <span class="text-info">{{totel_price}}</span></h6>
             </div>
+            <div>
+              <span class="muted">Enter Your Destinations</span>
+              <form method="post">
+                {% csrf_token %}
+                <div class="d-flex">
+                  <select id="multi-desti" style="width: 100%;" placeholder="Enter You Destinations" name="states[]"
+                    multiple="multiple">
+                    {% for x in destinations %}
+                    <option value="{{x.id}}" {% if x in selected_destinations %} selected {% endif %}>{{x.name}}
+                    </option>
+                    {% endfor %}
+                  </select>
+                  <input type="submit" class="btn btn-info ml-2" id="submit_desti">
+                </div>
 
-            {{package.description|safe }}
+              </form>
+            </div>
+            <p class="my-5">
+              {{package.description|safe }}
+            </p>
+            {% for x in selected_destinations %}
+            <div class="card m-2 p-3">
+              <div class="card-head">
+                <div class="d-flex justify-content-between">
+                  <h5>{{x.name}}</h5>
+                  <h6>+{{x.price}}</h6>
+                </div>
+                <hr>
+              </div>
+              <div style="margin: 0px;">
+                {{x.description|safe}}
+              </div>
+            </div>
+            {% endfor %}
+
           </div>
         </div>
         <!-- Blog Detail End -->
@@ -44,5 +59,14 @@
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('.multi-desti').select2();
+  });
+</script>
 <!-- Blog End -->
 {% endblock content %}

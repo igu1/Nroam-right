@@ -5,23 +5,33 @@ from django.utils import timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+class Location(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+    
+class Destination(models.Model):
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    description = RichTextField(null=True, blank=True)
+    location = models.ForeignKey(
+        Location, on_delete=models.CASCADE, null=True, blank=True
+    )
+    def __str__(self):
+        return self.name
+
 
 class TravelPackage(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.ForeignKey(Location, on_delete=models.CASCADE, null=True, blank=True)
     description = RichTextField(null=True, blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     duration_days = models.IntegerField()
-    destination = models.CharField(max_length=254)
-    type_of_trip = models.CharField(max_length=254)
-    contact_name = models.CharField(max_length=254, default="No Name")
-    contact_number = models.CharField(max_length=254, default="No Number")
-    start_date = models.DateField(default=timezone.localdate)
-    departure_city = models.CharField(max_length=254, default="No Specified")
-    end_city = models.CharField(max_length=254, default="No Specified")
     image = models.ImageField(upload_to="uploads/travel_package_images/")
+    destinations = models.ManyToManyField(Destination, related_name="destinations")
 
     def __str__(self):
-        return self.title
+        return self.title.name
 
 
 class Contact(models.Model):
